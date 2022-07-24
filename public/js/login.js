@@ -1,14 +1,14 @@
 /* eslint-disable */
 import axios from 'axios';
 import { showAlert } from './alerts';
-// const baseUrl = 'http://localhost:5000';
+const baseUrl = 'http://localhost:5000';
 const api = '/api/v1';
 
 export const signup = async (name, email, password, passwordConfirm) => {
   try {
     const res = await axios({
       method: 'POST',
-      url: `${api}/users/signup`,
+      url: `${baseUrl}/${api}/users/signup`,
       data: {
         name,
         email,
@@ -31,7 +31,7 @@ export const login = async (email, password) => {
   try {
     const res = await axios({
       method: 'POST',
-      url: `${api}/users/login`,
+      url: `${baseUrl}/${api}/users/login`,
       data: {
         email,
         password
@@ -53,7 +53,7 @@ export const logout = async () => {
   try {
     const res = await axios({
       method: 'GET',
-      url: `${api}/users/logout`
+      url: `${baseUrl}/${api}/users/logout`
     });
     if ((res.data.status = 'success')) location.assign('/');
   } catch (err) {
