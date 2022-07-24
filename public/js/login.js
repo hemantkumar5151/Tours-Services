@@ -2,7 +2,7 @@
 import axios from 'axios';
 import { showAlert } from './alerts';
 const baseUrl = 'http://localhost:5000';
-const api = '/api/v1';
+const api = 'api/v1';
 
 export const signup = async (name, email, password, passwordConfirm) => {
   try {
