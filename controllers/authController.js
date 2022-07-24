@@ -178,7 +178,6 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
   const resetToken = user.createPasswordResetToken();
   await user.save({ validateBeforeSave: false });
 
-  console.log(resetToken);
   // 3) Send it to user's email
   try {
     let resetURL = `${req.protocol}://locahost:5000/api/v1/users/resetPassword/${resetToken}`;
@@ -195,7 +194,6 @@ exports.forgotPassword = catchAsync(async (req, res, next) => {
       message: 'Token sent to email!'
     });
   } catch (err) {
-    console.log(err);
     user.passwordResetToken = undefined;
     user.passwordResetExpires = undefined;
     await user.save({ validateBeforeSave: false });

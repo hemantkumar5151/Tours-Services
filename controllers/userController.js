@@ -37,7 +37,6 @@ const upload = multer({
 });
 
 exports.resizeImage = (req, res, next) => {
-  console.log(req.file);
   if (!req.file) return next();
   req.file.filename = 'user-' + req.user.id + '-' + Date.now() + '.jpeg';
   sharp(req.file.buffer)

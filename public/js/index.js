@@ -13,6 +13,7 @@ const userDataForm = document.querySelector('.form-user-data');
 const userPasswordForm = document.querySelector('.form-user-password');
 const paymentBtn = document.getElementById('book-tour');
 // DELEGATION
+
 if (mapBox) {
   const locations = JSON.parse(mapBox.dataset.locations);
   displayMap(locations);
@@ -72,7 +73,6 @@ if (paymentBtn) {
     e.preventDefault();
     e.target.textContent = 'Processing...';
     const tourId = paymentBtn.getAttribute('data-tour-id');
-    console.log(tourId);
     bookTour(tourId);
   });
 }
