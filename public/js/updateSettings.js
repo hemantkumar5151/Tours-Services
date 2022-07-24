@@ -1,7 +1,7 @@
 /* eslint-disable */
 import axios from 'axios';
 import { showAlert } from './alerts';
-// const baseUrl = 'http://localhost:5000';
+const baseUrl = 'http://localhost:5000';
 const api = '/api/v1';
 
 // type is either 'password' or 'data'
@@ -9,8 +9,8 @@ export const updateSettings = async (data, type) => {
   try {
     const url =
       type === 'password'
-        ? `${api}/users/updateMyPassword`
-        : `${api}/users/updateMe`;
+        ? `/${api}/users/updateMyPassword`
+        : `/${api}/users/updateMe`;
 
     const res = await axios({
       method: 'PATCH',
